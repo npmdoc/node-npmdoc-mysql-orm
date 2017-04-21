@@ -1,26 +1,26 @@
 <svg height="366" width="720" xmlns="http://www.w3.org/2000/svg">
 <rect height="366" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
-<tspan x="10" y="26">  0.  2017-04-21 09:37:45 +0000   100373 bytes  .</tspan>
-<tspan x="10" y="42">  1.  2017-04-21 09:37:45 +0000    18025 bytes  LICENSE</tspan>
-<tspan x="10" y="58">  2.  2017-04-21 09:37:45 +0000    11560 bytes  README.md</tspan>
-<tspan x="10" y="74">  3.  2017-04-21 09:37:45 +0000     3765 bytes  autogen.js</tspan>
-<tspan x="10" y="90">  4.  2017-04-21 09:37:45 +0000     3067 bytes  delete.js</tspan>
-<tspan x="10" y="106">  5.  2017-04-21 09:37:45 +0000     5819 bytes  foreign-keys.js</tspan>
-<tspan x="10" y="122">  6.  2017-04-21 09:37:45 +0000     6986 bytes  index.js</tspan>
-<tspan x="10" y="138">  7.  2017-04-21 09:37:45 +0000     3490 bytes  initialise-schema.js</tspan>
-<tspan x="10" y="154">  8.  2017-04-21 09:37:45 +0000     5392 bytes  load.js</tspan>
-<tspan x="10" y="170">  9.  2017-04-21 09:37:45 +0000     2226 bytes  logging-query.js</tspan>
-<tspan x="10" y="186"> 10.  2017-04-21 09:37:45 +0000     2792 bytes  logging.js</tspan>
-<tspan x="10" y="202"> 11.  2017-04-21 09:37:45 +0000     1049 bytes  package.json</tspan>
-<tspan x="10" y="218"> 12.  2017-04-21 09:37:45 +0000     6605 bytes  parse-schema.js</tspan>
-<tspan x="10" y="234"> 13.  2017-04-21 09:37:45 +0000      401 bytes  run-tests.js</tspan>
-<tspan x="10" y="250"> 14.  2017-04-21 09:37:45 +0000     8068 bytes  save.js</tspan>
-<tspan x="10" y="266"> 15.  2017-04-21 09:37:45 +0000     6782 bytes  sql.js</tspan>
-<tspan x="10" y="282"> 16.  2017-04-21 09:37:45 +0000     2903 bytes  tests/data.js</tspan>
-<tspan x="10" y="298"> 17.  2017-04-21 09:37:45 +0000     1345 bytes  tests/index.js</tspan>
-<tspan x="10" y="314"> 18.  2017-04-21 09:37:45 +0000     4991 bytes  tests/readwrite.js</tspan>
-<tspan x="10" y="330"> 19.  2017-04-21 09:37:45 +0000     2520 bytes  transaction.js</tspan>
-<tspan x="10" y="346"> 20.  2017-04-21 09:37:45 +0000     2587 bytes  utils.js</tspan>
+<tspan x="10" y="26">  0.  2017-04-21 09:38:51 +0000   100373 bytes  .</tspan>
+<tspan x="10" y="42">  1.  2017-04-21 09:38:51 +0000    18025 bytes  LICENSE</tspan>
+<tspan x="10" y="58">  2.  2017-04-21 09:38:51 +0000    11560 bytes  README.md</tspan>
+<tspan x="10" y="74">  3.  2017-04-21 09:38:51 +0000     3765 bytes  autogen.js</tspan>
+<tspan x="10" y="90">  4.  2017-04-21 09:38:51 +0000     3067 bytes  delete.js</tspan>
+<tspan x="10" y="106">  5.  2017-04-21 09:38:51 +0000     5819 bytes  foreign-keys.js</tspan>
+<tspan x="10" y="122">  6.  2017-04-21 09:38:51 +0000     6986 bytes  index.js</tspan>
+<tspan x="10" y="138">  7.  2017-04-21 09:38:51 +0000     3490 bytes  initialise-schema.js</tspan>
+<tspan x="10" y="154">  8.  2017-04-21 09:38:51 +0000     5392 bytes  load.js</tspan>
+<tspan x="10" y="170">  9.  2017-04-21 09:38:51 +0000     2226 bytes  logging-query.js</tspan>
+<tspan x="10" y="186"> 10.  2017-04-21 09:38:51 +0000     2792 bytes  logging.js</tspan>
+<tspan x="10" y="202"> 11.  2017-04-21 09:38:51 +0000     1049 bytes  package.json</tspan>
+<tspan x="10" y="218"> 12.  2017-04-21 09:38:51 +0000     6605 bytes  parse-schema.js</tspan>
+<tspan x="10" y="234"> 13.  2017-04-21 09:38:51 +0000      401 bytes  run-tests.js</tspan>
+<tspan x="10" y="250"> 14.  2017-04-21 09:38:51 +0000     8068 bytes  save.js</tspan>
+<tspan x="10" y="266"> 15.  2017-04-21 09:38:51 +0000     6782 bytes  sql.js</tspan>
+<tspan x="10" y="282"> 16.  2017-04-21 09:38:51 +0000     2903 bytes  tests/data.js</tspan>
+<tspan x="10" y="298"> 17.  2017-04-21 09:38:51 +0000     1345 bytes  tests/index.js</tspan>
+<tspan x="10" y="314"> 18.  2017-04-21 09:38:51 +0000     4991 bytes  tests/readwrite.js</tspan>
+<tspan x="10" y="330"> 19.  2017-04-21 09:38:51 +0000     2520 bytes  transaction.js</tspan>
+<tspan x="10" y="346"> 20.  2017-04-21 09:38:51 +0000     2587 bytes  utils.js</tspan>
 </text>
 </svg>

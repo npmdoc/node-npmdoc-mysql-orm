@@ -1,0 +1,2326 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/battlesnake/node-mysql-orm"
+
+    >mysql-orm (v0.0.8)</a>
+</h1>
+<h4>ORM frontend for MySQL, uses JSON schema to define tables and relationships.  This supports automatic table re-generation with indexes, default values, foreign keys, reference options, query logging and more.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql-orm">module mysql-orm</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.create">
+            function <span class="apidocSignatureSpan">mysql-orm.</span>create
+            <span class="apidocSignatureSpan">(schema, defaultdata, options, onready)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.names">
+            function <span class="apidocSignatureSpan">mysql-orm.</span>names
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql-orm.</span>autogen</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql-orm.</span>delete</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql-orm.</span>foreign_keys</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql-orm.</span>initialise_schema</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql-orm.</span>load</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql-orm.</span>logging</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql-orm.</span>logging_query</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql-orm.</span>parse_schema</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql-orm.</span>save</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql-orm.</span>sql</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql-orm.</span>transaction</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql-orm.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql-orm.autogen">module mysql-orm.autogen</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.autogen.create_database">
+            function <span class="apidocSignatureSpan">mysql-orm.autogen.</span>create_database
+            <span class="apidocSignatureSpan">(orm, recreate, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.autogen.create_tables">
+            function <span class="apidocSignatureSpan">mysql-orm.autogen.</span>create_tables
+            <span class="apidocSignatureSpan">(orm, recreate, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql-orm.delete">module mysql-orm.delete</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.delete.delete">
+            function <span class="apidocSignatureSpan">mysql-orm.</span>delete
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql-orm.foreign_keys">module mysql-orm.foreign_keys</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.foreign_keys.listForeignKeys">
+            function <span class="apidocSignatureSpan">mysql-orm.foreign_keys.</span>listForeignKeys
+            <span class="apidocSignatureSpan">(table)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.foreign_keys.lookupForeignId">
+            function <span class="apidocSignatureSpan">mysql-orm.foreign_keys.</span>lookupForeignId
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.foreign_keys.lookupForeignIds">
+            function <span class="apidocSignatureSpan">mysql-orm.foreign_keys.</span>lookupForeignIds
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.foreign_keys.lookupForeignValue">
+            function <span class="apidocSignatureSpan">mysql-orm.foreign_keys.</span>lookupForeignValue
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.foreign_keys.lookupForeignValues">
+            function <span class="apidocSignatureSpan">mysql-orm.foreign_keys.</span>lookupForeignValues
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql-orm.initialise_schema">module mysql-orm.initialise_schema</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.initialise_schema.initialise_schema">
+            function <span class="apidocSignatureSpan">mysql-orm.</span>initialise_schema
+            <span class="apidocSignatureSpan">(orm)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql-orm.load">module mysql-orm.load</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.load.load">
+            function <span class="apidocSignatureSpan">mysql-orm.</span>load
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.load.loadMany">
+            function <span class="apidocSignatureSpan">mysql-orm.load.</span>loadMany
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql-orm.logging">module mysql-orm.logging</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.logging.error">
+            function <span class="apidocSignatureSpan">mysql-orm.logging.</span>error
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.logging.info">
+            function <span class="apidocSignatureSpan">mysql-orm.logging.</span>info
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.logging.log">
+            function <span class="apidocSignatureSpan">mysql-orm.logging.</span>log
+            <span class="apidocSignatureSpan">(level, msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.logging.test">
+            function <span class="apidocSignatureSpan">mysql-orm.logging.</span>test
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.logging.warn">
+            function <span class="apidocSignatureSpan">mysql-orm.logging.</span>warn
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">mysql-orm.logging.</span>logLevel</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql-orm.logging_query">module mysql-orm.logging_query</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.logging_query.loggedQuery">
+            function <span class="apidocSignatureSpan">mysql-orm.logging_query.</span>loggedQuery
+            <span class="apidocSignatureSpan">(connection)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql-orm.parse_schema">module mysql-orm.parse_schema</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.parse_schema.parse_schema">
+            function <span class="apidocSignatureSpan">mysql-orm.</span>parse_schema
+            <span class="apidocSignatureSpan">(orm)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql-orm.save">module mysql-orm.save</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.save.save">
+            function <span class="apidocSignatureSpan">mysql-orm.</span>save
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.save.saveMany">
+            function <span class="apidocSignatureSpan">mysql-orm.save.</span>saveMany
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.save.saveMultipleTables">
+            function <span class="apidocSignatureSpan">mysql-orm.save.</span>saveMultipleTables
+            <span class="apidocSignatureSpan">(data, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql-orm.sql">module mysql-orm.sql</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.sql.delete">
+            function <span class="apidocSignatureSpan">mysql-orm.sql.</span>delete
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.sql.from">
+            function <span class="apidocSignatureSpan">mysql-orm.sql.</span>from
+            <span class="apidocSignatureSpan">(self, table, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.sql.insertInto">
+            function <span class="apidocSignatureSpan">mysql-orm.sql.</span>insertInto
+            <span class="apidocSignatureSpan">(self, table, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.sql.limit">
+            function <span class="apidocSignatureSpan">mysql-orm.sql.</span>limit
+            <span class="apidocSignatureSpan">(self, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.sql.onDuplicateKeyUpdate">
+            function <span class="apidocSignatureSpan">mysql-orm.sql.</span>onDuplicateKeyUpdate
+            <span class="apidocSignatureSpan">(self, keys, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.sql.orderby">
+            function <span class="apidocSignatureSpan">mysql-orm.sql.</span>orderby
+            <span class="apidocSignatureSpan">(self, table, sort, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.sql.select">
+            function <span class="apidocSignatureSpan">mysql-orm.sql.</span>select
+            <span class="apidocSignatureSpan">(self, fields, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.sql.set">
+            function <span class="apidocSignatureSpan">mysql-orm.sql.</span>set
+            <span class="apidocSignatureSpan">(self, keys, row, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.sql.update">
+            function <span class="apidocSignatureSpan">mysql-orm.sql.</span>update
+            <span class="apidocSignatureSpan">(self, table, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.sql.where">
+            function <span class="apidocSignatureSpan">mysql-orm.sql.</span>where
+            <span class="apidocSignatureSpan">(self, query, table, criteria, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql-orm.transaction">module mysql-orm.transaction</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.transaction.beginTransaction">
+            function <span class="apidocSignatureSpan">mysql-orm.transaction.</span>beginTransaction
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql-orm.utils">module mysql-orm.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.utils.indent">
+            function <span class="apidocSignatureSpan">mysql-orm.utils.</span>indent
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.utils.names">
+            function <span class="apidocSignatureSpan">mysql-orm.utils.</span>names
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql-orm.utils.parse_args">
+            function <span class="apidocSignatureSpan">mysql-orm.utils.</span>parse_args
+            <span class="apidocSignatureSpan">(orm, args, wantsField)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql-orm" id="apidoc.module.mysql-orm">module mysql-orm</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.create" id="apidoc.element.mysql-orm.create">
+        function <span class="apidocSignatureSpan">mysql-orm.</span>create
+        <span class="apidocSignatureSpan">(schema, defaultdata, options, onready)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (schema, defaultdata, options, onready) {
+	return new ORM(schema, defaultdata, options, onready);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+If `skipChecks` is `true` in the options, mysql-orm will not check for existence of the database or the tables, will not regenerate
+ them even if `recreate*` are set, and it will return synchronously.
+
+```node
+var mysql_orm = require(&#x27;mysql_orm&#x27;);
+var orm = null;
+
+mysql_orm.<span class="apidocCodeKeywordSpan">create</span>(schema, data, orm_options, function (err, ormObject) {
+	if (err) {
+		throw err;
+	}
+	orm = ormObject;
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.names" id="apidoc.element.mysql-orm.names">
+        function <span class="apidocSignatureSpan">mysql-orm.</span>names
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">names = function (obj) {
+	return utils.names(obj);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+// names
+// -----
+// Returns an array of names of properties of the object excluding names that
+// begin with a &#x27;$&#x27; symbol.
+module.exports.names = function (obj) {
+	return utils.<span class="apidocCodeKeywordSpan">names</span>(obj);
+};
+
+
+// ORM constructor
+// ---------------
+//  + schema - Defines the structure of the database and the relations.
+//    This is described below.
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql-orm.autogen" id="apidoc.module.mysql-orm.autogen">module mysql-orm.autogen</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.autogen.create_database" id="apidoc.element.mysql-orm.autogen.create_database">
+        function <span class="apidocSignatureSpan">mysql-orm.autogen.</span>create_database
+        <span class="apidocSignatureSpan">(orm, recreate, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function create_database(orm, recreate, callback) {
+	var queries = [];
+	if (recreate) {
+		orm.warn(&#x27;Recreate is specified: dropping database &#x27; + orm.database);
+		queries.push(mysql.format(&#x27;DROP DATABASE IF EXISTS ??&#x27;, [orm.database]));
+	}
+	queries.push(mysql.format(&#x27;CREATE DATABASE IF NOT EXISTS ??&#x27;, [orm.database]));
+	queries.push(mysql.format(&#x27;USE ??&#x27;, [orm.database]));
+	<span class="apidocCodeCommentSpan">/* Generate query executing functions from SQL commands */
+</span>	queries = queries.map(function (sql) {
+		return function (callback) {
+			orm.query(sql, null, callback);
+		};
+	});
+	/* Execute queries */
+	async.series(queries, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.autogen.create_tables" id="apidoc.element.mysql-orm.autogen.create_tables">
+        function <span class="apidocSignatureSpan">mysql-orm.autogen.</span>create_tables
+        <span class="apidocSignatureSpan">(orm, recreate, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function create_tables(orm, recreate, callback) {
+	var queries = [];
+	<span class="apidocCodeCommentSpan">/* Generate list of SQL commands */
+</span>	queries.push(&#x27;SET FOREIGN_KEY_CHECKS = 0&#x27;);
+	if (recreate) {
+		var tables = names(orm.schema);
+		orm.warn(&#x27;Recreate is specified: dropping tables &#x27; + tables.join(&#x27;, &#x27;));
+		if (tables.length) {
+			queries.push(mysql.format(&#x27;DROP TABLE IF EXISTS ??&#x27;, [tables]));
+		}
+	}
+	names(orm.schema).forEach(function (tableName) {
+		queries.push(create_table(orm, orm.schema[tableName]));
+	});
+	queries.push(&#x27;SET FOREIGN_KEY_CHECKS = 1&#x27;);
+	/* Execute queries */
+	async.series(
+		queries.map(function (sql) {
+			return async.apply(orm.query, sql, null);
+		}),
+		callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql-orm.delete" id="apidoc.module.mysql-orm.delete">module mysql-orm.delete</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.delete.delete" id="apidoc.element.mysql-orm.delete.delete">
+        function <span class="apidocSignatureSpan">mysql-orm.</span>delete
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delete = function () {
+	var args = parse_args(this, arguments);
+	var query = args.query;
+	var table = args.table;
+	var criteria = args.data;
+	var callback = args.callback;
+	var self = this;
+	async.parallel([
+			async.apply(sql.delete),
+			async.apply(sql.from, this, table),
+			async.apply(sql.where, this, query, table, criteria)
+		],
+		function (err, sqlParts) {
+			if (err) {
+				return callback(err);
+			}
+			query(_(sqlParts).compact().join(&#x27;\n&#x27;), null, function (err, res) {
+				if (err) {
+					return callback(err);
+				}
+				return callback(null, res.affectedRows);
+			});
+		});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	});
+
+```
+
+### Deleting data
+
+```node
+orm.<span class="apidocCodeKeywordSpan">delete</span>(orm.schema.users, 1, callback);
+orm.delete(orm.schema.countries, { name: &#x27;Atlantis&#x27; }, callback);
+orm.deleteMany(orm.schema.posts, { user: { name: &#x27;Bob&#x27; } }, callback);
+```
+
+# Debugging
+```node
+orm.logLevel = 3;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql-orm.foreign_keys" id="apidoc.module.mysql-orm.foreign_keys">module mysql-orm.foreign_keys</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.foreign_keys.listForeignKeys" id="apidoc.element.mysql-orm.foreign_keys.listForeignKeys">
+        function <span class="apidocSignatureSpan">mysql-orm.foreign_keys.</span>listForeignKeys
+        <span class="apidocSignatureSpan">(table)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">listForeignKeys = function (table) {
+	if (_(table).isString()) {
+		table = this.schema[table];
+	}
+	return names(table).filter(function (col) { return !!table[col].references; });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	var args = parse_args(this, arguments);
+	var query = args.query;
+	var table = args.table;
+	var row = args.data;
+	var callback = args.callback;
+	var options = args.options;
+	var self = this;
+	var cols = options.cols || this.<span class="apidocCodeKeywordSpan">listForeignKeys</span>(table);
+	async.each(cols,
+		function (col, callback) {
+			var field = table[col];
+			if (!field) {
+				throw new Error(&#x27;Field &#x22;&#x27; + col + &#x27;&#x22; not found in table &#x22;&#x27; +
+					table.$name + &#x27;&#x22;&#x27;);
+			}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.foreign_keys.lookupForeignId" id="apidoc.element.mysql-orm.foreign_keys.lookupForeignId">
+        function <span class="apidocSignatureSpan">mysql-orm.foreign_keys.</span>lookupForeignId
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lookupForeignId = function () {
+	var args = parse_args(this, arguments, true);
+	var query = args.query;
+	var field = args.field;
+	var criteria = args.data;
+	var options = args.options;
+	var callback = args.callback;
+	var self = this;
+	var foreign = field.references;
+	async.parallel([
+			async.apply(sql.select, this, [foreign.$name]),
+			async.apply(sql.from, this, foreign.$table),
+			async.apply(sql.where, this, query, foreign.$table, criteria),
+			async.apply(sql.limit, this, { count: 2 })
+		],
+		function (err, sqlParts) {
+			query(_(sqlParts).compact().join(&#x27;\n&#x27;), null, function (err, rows) {
+				if (err) {
+					self.warn(&#x27;Error occurred while looking up foreign id&#x27;);
+					return callback(err);
+				}
+				if (rows.length !== 1) {
+					return callback(new Error(self.warn(
+								(rows.length &#x3e; 1 ? &#x27;Multiple&#x27; : &#x27;No&#x27;) +
+								&#x27; foreign ids found&#x27;)),
+								rows.length);
+				}
+				var row = rows[0];
+				callback(null, row[foreign.$name]);
+			});
+		});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+				throw new Error(&#x27;Field &#x22;&#x27; + col + &#x27;&#x22; not found in table &#x22;&#x27; +
+					table.$name + &#x27;&#x22;&#x27;);
+			}
+			var value = row[col];
+			if (!_(value).isObject()) {
+				return callback(null);
+			}
+			self.<span class="apidocCodeKeywordSpan">lookupForeignId</span>(query, field, value, function (err, res) {
+				if (err) {
+					return callback(err);
+				}
+				row[col] = res;
+				callback(null);
+			});
+		},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.foreign_keys.lookupForeignIds" id="apidoc.element.mysql-orm.foreign_keys.lookupForeignIds">
+        function <span class="apidocSignatureSpan">mysql-orm.foreign_keys.</span>lookupForeignIds
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lookupForeignIds = function () {
+	var args = parse_args(this, arguments);
+	var query = args.query;
+	var table = args.table;
+	var row = args.data;
+	var callback = args.callback;
+	var options = args.options;
+	var self = this;
+	var cols = options.cols || this.listForeignKeys(table);
+	async.each(cols,
+		function (col, callback) {
+			var field = table[col];
+			if (!field) {
+				throw new Error(&#x27;Field &#x22;&#x27; + col + &#x27;&#x22; not found in table &#x22;&#x27; +
+					table.$name + &#x27;&#x22;&#x27;);
+			}
+			var value = row[col];
+			if (!_(value).isObject()) {
+				return callback(null);
+			}
+			self.lookupForeignId(query, field, value, function (err, res) {
+				if (err) {
+					return callback(err);
+				}
+				row[col] = res;
+				callback(null);
+			});
+		},
+		function (err) {
+			callback(err, row);
+		});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+				/* Serialize */
+				_(table).keys().forEach(function (key) {
+					if (table[key].serialize) {
+						row[key] = table[key].serialize(row[key]);
+					}
+				});
+				/* Lookup reference IDs */
+				self.<span class="apidocCodeKeywordSpan">lookupForeignIds</span>(query, table, row, function (err, res) {
+						row = res;
+						callback(err);
+					});
+			},
+			function (callback) {
+				var saveMode = options.save || &#x27;always&#x27;;
+				if (saveMode === &#x27;always&#x27;) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.foreign_keys.lookupForeignValue" id="apidoc.element.mysql-orm.foreign_keys.lookupForeignValue">
+        function <span class="apidocSignatureSpan">mysql-orm.foreign_keys.</span>lookupForeignValue
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lookupForeignValue = function () {
+	var args = parse_args(this, arguments, true);
+	var query = args.query;
+	var field = args.field;
+	var id = args.data;
+	var callback = args.callback;
+	var options = args.options;
+	var self = this;
+	var foreign = field.references;
+	var criteria = _.object([foreign.$name], [id]);
+	this.load(query, foreign.$table, criteria, options, function (err, res) {
+		if (err) {
+			self.warn(&#x27;Error occurred while looking up foreign row&#x27;);
+			return callback(err);
+		}
+		callback(null, res);
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	var self = this;
+	async.each(cols,
+		function (col, callback) {
+			var field = table[col], id = row[col], foreign = field.references;
+			if (_(id).isNull() || _(id).isObject()) {
+				return callback(null);
+			}
+			self.<span class="apidocCodeKeywordSpan">lookupForeignValue</span>(query, field, id, options, function (err, res) {
+				if (err) {
+					return callback(err);
+				}
+				row[col] = res;
+				callback(null);
+			});
+		},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.foreign_keys.lookupForeignValues" id="apidoc.element.mysql-orm.foreign_keys.lookupForeignValues">
+        function <span class="apidocSignatureSpan">mysql-orm.foreign_keys.</span>lookupForeignValues
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lookupForeignValues = function () {
+	var args = parse_args(this, arguments);
+	var query = args.query;
+	var table = args.table;
+	var row = args.data;
+	var callback = args.callback;
+	var options = args.options;
+	var cols = options.cols || this.listForeignKeys(table);
+	var self = this;
+	async.each(cols,
+		function (col, callback) {
+			var field = table[col], id = row[col], foreign = field.references;
+			if (_(id).isNull() || _(id).isObject()) {
+				return callback(null);
+			}
+			self.lookupForeignValue(query, field, id, options, function (err, res) {
+				if (err) {
+					return callback(err);
+				}
+				row[col] = res;
+				callback(null);
+			});
+		},
+		function (err) {
+			callback(err, row);
+		});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+						/* Deserialize */
+						names(table).forEach(function (key) {
+							if (table[key].deserialize) {
+								row[key] = table[key].deserialize(row[key]);
+							}
+						});
+						/* Lookup references */
+						self.<span class="apidocCodeKeywordSpan">lookupForeignValues</span>(query, table, row, options,
+							callback);
+					},
+					function (err) {
+						if (err) {
+							return callback(err);
+						}
+						callback(null, rows);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql-orm.initialise_schema" id="apidoc.module.mysql-orm.initialise_schema">module mysql-orm.initialise_schema</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.initialise_schema.initialise_schema" id="apidoc.element.mysql-orm.initialise_schema.initialise_schema">
+        function <span class="apidocSignatureSpan">mysql-orm.</span>initialise_schema
+        <span class="apidocSignatureSpan">(orm)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function initialise_schema(orm) {
+	var schema = orm.schema;
+	schema.$name = orm.database;
+	schema.$orm = orm;
+	schema.$fullname = &#x27;(&#x27; + orm.database + &#x27;)&#x27;;
+	schema.$type = &#x27;schema&#x27;;
+	names(schema).forEach(function initialise_table(tableName) {
+		orm.info(&#x27;schema &#x27; + tableName);
+		var table = schema[tableName];
+		table.$name = tableName;
+		table.$schema = schema;
+		table.$fullname = mysql.escapeId(tableName);
+		table.$type = &#x27;table&#x27;;
+		if (!_(table).has(&#x27;id&#x27;) &#x26;&#x26; !_(table).has(&#x27;$primary&#x27;)) {
+			table.id = { type: &#x27;::id&#x27; };
+			table.$primary = &#x27;id&#x27;;
+		}
+		if (_(table.$primary).isString()) {
+			table.$primary = [table.$primary];
+		}
+		table.$primary = table.$primary || [];
+		names(table).forEach(function initialise_field(fieldName) {
+			orm.info(&#x27;schema &#x27; + Array(tableName.length + 1).join(&#x27; &#x27;) + &#x27;.&#x27; +
+				fieldName);
+			var fullname = mysql.escapeId(tableName) + &#x27;.&#x27; +
+				mysql.escapeId(fieldName);
+			if (_(table[fieldName]).isString()) {
+				table[fieldName] = expand_field_shorthand_definition(orm,
+					fullname, table[fieldName]);
+			}
+			var field = table[fieldName];
+			field.$name = fieldName;
+			field.$table = table;
+			field.$schema = schema;
+			field.$fullname = fullname;
+			field.$type = &#x27;field&#x27;;
+		});
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	}
+	if (!options.mysql) {
+		throw new Error(&#x27;Compulsory option (lol) `mysql` not specified&#x27;);
+	}
+	this.database = options.database;
+	this.schema = JSON.parse(JSON.stringify(schema));
+	this.types = schema.$types;
+	Internal.<span class="apidocCodeKeywordSpan">initialise_schema</span>(this);
+	Internal.parse_schema(this);
+	var createConnectionPool = function () {
+		options.mysql.database = options.database;
+		self.connection = mysql.createPool(options.mysql);
+		self.query = self.loggedQuery(self.connection);
+	};
+	/* No checks - connect to the DB and return synchronously */
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql-orm.load" id="apidoc.module.mysql-orm.load">module mysql-orm.load</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.load.load" id="apidoc.element.mysql-orm.load.load">
+        function <span class="apidocSignatureSpan">mysql-orm.</span>load
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">load = function () {
+	var args = parse_args(this, arguments);
+	var query = args.query;
+	var table = args.table;
+	var criteria = args.data;
+	var callback = args.callback;
+	var self = this;
+	this.loadMany(table, criteria, { count: 2 }, function (err, res) {
+		if (err) {
+			return callback(err);
+		}
+		if (res.length === 0) {
+			return callback(new Error(&#x27;Item not found&#x27;), null);
+		}
+		else if (res.length &#x3e; 1) {
+			return callback(new Error(&#x27;Multiple rows were returned for GET &#x27; +
+				&#x27;operation on table &#x27;+table.$name+&#x27; with criteria &#x27; +
+				JSON.stringify(criteria)));
+		}
+		callback(null, res[0]);
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	countries.forEach(function (country) { console.write(country.name });
+});
+
+/*
+* load: Retrieve one record, return error if none were found or
+* if several were found
+*/
+orm.<span class="apidocCodeKeywordSpan">load</span>(orm.schema.users, 1, function (err, user) {
+	console.log(user.name + &#x27; is in &#x27; + user.country.name);
+});
+/*
+* Oh did you notice that the `country` is automatically looked
+* up there?  Awesome!
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.load.loadMany" id="apidoc.element.mysql-orm.load.loadMany">
+        function <span class="apidocSignatureSpan">mysql-orm.load.</span>loadMany
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadMany = function () {
+	var args = parse_args(this, arguments);
+	var query = args.query;
+	var table = args.table;
+	var criteria = args.data;
+	var options = args.options;
+	var callback = args.callback;
+	var self = this;
+	var lookup = !_(options).has(&#x27;lookup&#x27;) || criteria.lookup;
+	async.parallel([
+			async.apply(sql.select, this, options.fields),
+			async.apply(sql.from, this, table),
+			async.apply(sql.where, this, query, table, criteria),
+			async.apply(sql.orderby, this, table, options.sort),
+			async.apply(sql.limit, this, options)
+			<span class="apidocCodeCommentSpan">/*
+			 * TODO: JOINs so we can get the foreign key stuff in one operation
+			 * instead of running several SELECTs on every row which is obviously
+			 * going to be insanely slow for large datasets.
+			 */
+</span>		],
+		function (err, sqlParts) {
+			if (err) {
+				return callback(err);
+			}
+			query(_(sqlParts).compact().join(&#x27;\n&#x27;), null, function (err, rows) {
+				if (err) {
+					return callback(err);
+				}
+				if (!lookup) {
+					return callback(null, rows);
+				}
+				async.each(rows,
+					function (row, callback) {
+						/* Deserialize */
+						names(table).forEach(function (key) {
+							if (table[key].deserialize) {
+								row[key] = table[key].deserialize(row[key]);
+							}
+						});
+						/* Lookup references */
+						self.lookupForeignValues(query, table, row, options,
+							callback);
+					},
+					function (err) {
+						if (err) {
+							return callback(err);
+						}
+						callback(null, rows);
+					});
+			});
+		});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```node
+/*
+ * loadMany: Read multiple records from a table
+ *
+ * Specify the table by reference in the schema, or as a string
+ * e.g. &#x27;countries&#x27;
+ */
+orm.<span class="apidocCodeKeywordSpan">loadMany</span>(orm.schema.countries, null, function (err, countries) {
+	if (err) {
+		throw err;
+	}
+	countries.forEach(function (country) { console.write(country.name });
+});
+
+/*
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql-orm.logging" id="apidoc.module.mysql-orm.logging">module mysql-orm.logging</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.logging.error" id="apidoc.element.mysql-orm.logging.error">
+        function <span class="apidocSignatureSpan">mysql-orm.logging.</span>error
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">error = function (msg) {
+	if (this.logLevel &#x3e;= 1) {
+		this.log(cli.red.bold(&#x27;FAIL&#x27;), msg);
+		throw (msg instanceof Error ? msg : new Error(msg));
+	}
+	if (this.debug) sleep(500);
+	return msg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		}
+		else {
+			f.splice(idx, 1);
+			return true;
+		}
+	}
+	if (f.length === 0) {
+		return orm.<span class="apidocCodeKeywordSpan">error</span>(err(&#x27;No type found&#x27;));
+	}
+	field = {};
+	field.type = f.shift();
+	field.unique = flag(&#x27;unique&#x27;);
+	field.index = flag(&#x27;index&#x27;);
+	field.nullable = flag(&#x27;nullable&#x27;);
+	field.auto_increment = flag(&#x27;auto_increment&#x27;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.logging.info" id="apidoc.element.mysql-orm.logging.info">
+        function <span class="apidocSignatureSpan">mysql-orm.logging.</span>info
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">info = function (msg) {
+	if (this.logLevel &#x3e;= 3) {
+		this.log(cli.cyan(&#x27;INFO&#x27;), msg);
+	}
+	return msg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+function initialise_schema(orm) {
+	var schema = orm.schema;
+	schema.$name = orm.database;
+	schema.$orm = orm;
+	schema.$fullname = &#x27;(&#x27; + orm.database + &#x27;)&#x27;;
+	schema.$type = &#x27;schema&#x27;;
+	names(schema).forEach(function initialise_table(tableName) {
+		orm.<span class="apidocCodeKeywordSpan">info</span>(&#x27;schema &#x27; + tableName);
+		var table = schema[tableName];
+		table.$name = tableName;
+		table.$schema = schema;
+		table.$fullname = mysql.escapeId(tableName);
+		table.$type = &#x27;table&#x27;;
+		if (!_(table).has(&#x27;id&#x27;) &#x26;&#x26; !_(table).has(&#x27;$primary&#x27;)) {
+			table.id = { type: &#x27;::id&#x27; };
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.logging.log" id="apidoc.element.mysql-orm.logging.log">
+        function <span class="apidocSignatureSpan">mysql-orm.logging.</span>log
+        <span class="apidocSignatureSpan">(level, msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">log = function (level, msg) {
+	console.log(cli.green(&#x27;mysql-orm&#x27;) + &#x27; &#x27; + level + &#x27; &#x27; + msg);
+	if (this.debug) sleep(50);
+	return msg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+
+/*
+ * load: Retrieve one record, return error if none were found or
+ * if several were found
+ */
+orm.load(orm.schema.users, 1, function (err, user) {
+	console.<span class="apidocCodeKeywordSpan">log</span>(user.name + &#x27; is in &#x27; + user.country.name);
+});
+/*
+ * Oh did you notice that the `country` is automatically looked
+ * up there?  Awesome!
+ */
+
+/*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.logging.test" id="apidoc.element.mysql-orm.logging.test">
+        function <span class="apidocSignatureSpan">mysql-orm.logging.</span>test
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">test = function (msg) {
+	this.log(cli.magenta(&#x27;TEST&#x27;), msg);
+	return msg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.logging.warn" id="apidoc.element.mysql-orm.logging.warn">
+        function <span class="apidocSignatureSpan">mysql-orm.logging.</span>warn
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">warn = function (msg) {
+	if (this.logLevel &#x3e;= 2) {
+		this.log(cli.yellow(&#x27;WARN&#x27;), msg);
+	}
+	if (this.debug) sleep(250);
+	return msg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// ---------------
+// Creates the database if needed or if recreate is requested
+//
+module.exports.create_database = create_database;
+function create_database(orm, recreate, callback) {
+	var queries = [];
+	if (recreate) {
+		orm.<span class="apidocCodeKeywordSpan">warn</span>(&#x27;Recreate is specified: dropping database &#x27; + orm.database);
+		queries.push(mysql.format(&#x27;DROP DATABASE IF EXISTS ??&#x27;, [orm.database]));
+	}
+	queries.push(mysql.format(&#x27;CREATE DATABASE IF NOT EXISTS ??&#x27;, [orm.database]));
+	queries.push(mysql.format(&#x27;USE ??&#x27;, [orm.database]));
+	/* Generate query executing functions from SQL commands */
+	queries = queries.map(function (sql) {
+		return function (callback) {
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql-orm.logging_query" id="apidoc.module.mysql-orm.logging_query">module mysql-orm.logging_query</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.logging_query.loggedQuery" id="apidoc.element.mysql-orm.logging_query.loggedQuery">
+        function <span class="apidocSignatureSpan">mysql-orm.logging_query.</span>loggedQuery
+        <span class="apidocSignatureSpan">(connection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loggedQuery = function (connection) {
+	var qid_static = 0;
+	var cid = String(cid_static++);
+	var self = this;
+	function query(query_format, params, callback) {
+		var qid = String(qid_static++);
+		var qidstr = cli.magenta(&#x27;cid:&#x27; + cid + &#x27;, qid:&#x27; + qid) + Array((cid + qid).length &#x3c; 6 ? 6 - (cid + qid).length : 1).join(&#x27; &#x27;);
+		var log = function (left, value) {
+			self.info(qidstr + left + (value.indexOf(&#x27;\n&#x27;) === -1 ? value : &#x27;\n&#x27; + indent(value).replace(/\t/g, &#x27;    &#x27;)));
+		};
+		var sql = mysql.format(query_format, params);
+		if (!_(query_format).isString() || params) {
+			log(&#x27;query  = &#x27;, (_(query_format).isString() ? query_format : JSON.stringify(query_format)));
+			log(&#x27;params = &#x27;, JSON.stringify(params));
+			log(&#x27;sql    = &#x27;, sql);
+		}
+		else {
+			log(&#x27;sql = &#x27;, sql);
+		}
+		connection.query(sql, function (err) {
+			if (err) {
+				self[self.ready ? &#x27;warn&#x27; : &#x27;error&#x27;](qidstr + &#x27;error = &#x27; + JSON.stringify(err) + &#x27;; sql=\n&#x27; + indent(sql));
+			}
+			callback.apply(null, arguments);
+		});
+	};
+	query._cid = cid;
+	query._msg = function (str) {
+		return cli.magenta(&#x27;cid:&#x27; + cid + &#x27;     &#x27;) + Array(cid.length &#x3c; 6 ? 6 - cid.length : 1).join(&#x27; &#x27;) + &#x27; &#x27; + str;
+	};
+	return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	this.schema = JSON.parse(JSON.stringify(schema));
+	this.types = schema.$types;
+	Internal.initialise_schema(this);
+	Internal.parse_schema(this);
+	var createConnectionPool = function () {
+		options.mysql.database = options.database;
+		self.connection = mysql.createPool(options.mysql);
+		self.query = self.<span class="apidocCodeKeywordSpan">loggedQuery</span>(self.connection);
+	};
+	/* No checks - connect to the DB and return synchronously */
+	if (options.skipChecks) {
+		createConnectionPool();
+		self.ready = true;
+		if (_(onready).isFunction()) {
+			onready(null, self);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql-orm.parse_schema" id="apidoc.module.mysql-orm.parse_schema">module mysql-orm.parse_schema</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.parse_schema.parse_schema" id="apidoc.element.mysql-orm.parse_schema.parse_schema">
+        function <span class="apidocSignatureSpan">mysql-orm.</span>parse_schema
+        <span class="apidocSignatureSpan">(orm)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parse_schema(orm) {
+	var schema = orm.schema;
+	<span class="apidocCodeCommentSpan">/* Resolve aliases */
+</span>	names(schema.$types).forEach(function resolve_alias(alias) {
+		var type = schema.$types[alias];
+		while (_(schema.$types).has(type) &#x26;&#x26; schema.$types[type] !== type) {
+			type = schema.$types[type];
+			if (type === alias) {
+				return orm.error(&#x27;Circular type alias dependency for &#x22;&#x27; +
+					alias + &#x27;&#x22;&#x27;);
+			}
+		}
+		schema.$types[alias] = type;
+	});
+	var implicit_refs = [], all_refs = [];
+	/* Process fields */
+	names(schema).forEach(function parse_table(tableName) {
+		var table = schema[tableName];
+		names(table).forEach(function parse_field(fieldName) {
+			var field = table[fieldName];
+			/* Resolve aliases */
+			if (_(orm.schema.$types).has(field.type)) {
+				field.type = orm.schema.$types[field.type];
+			}
+			/* Store resolved type */
+			field.$type = field.type;
+			/* Builtin primary key type */
+			if (field.type === &#x27;::id&#x27;) {
+				field.type = &#x27;INTEGER&#x27;;
+				field.auto_increment = true;
+				if (table.$primary.length &#x3e; 0 &#x26;&#x26;
+					!((table.$primary).length === 1
+						&#x26;&#x26; table.$primary[0] === fieldName)) {
+					return orm.error(&#x27;Cannot parse field &#x22;&#x27; + field.$fullname +
+						&#x27;&#x22;: table &#x22;&#x27; + table.$fullname + &#x27;&#x22; already has &#x27; +
+						&#x27;primary key(s) specified&#x27;);
+				}
+				table.$primary = [fieldName];
+			}
+			/* JSON field */
+			var match = field.type.match(/^JSON(?:\(\s*(\d+)\s*\))?$/i);
+			if (match) {
+				field.type = match[1] ? &#x27;VARCHAR(&#x27; + match[1] + &#x27;)&#x27; : &#x27;LONGTEXT&#x27;;
+				field.serialize = function (o) {
+					return JSON.stringify(_(o).isUndefined() ? this.default : o);
+				};
+				field.deserialize = function (s) {
+					return (s === null || s === &#x27;&#x27;) ? this.default : JSON.parse(s);
+				};
+			}
+			/* Auto-increment */
+			if (field.auto_increment) {
+				table.$auto_increment = fieldName;
+			}
+			/* Implicit references */
+			if (field.type.charAt(0) === &#x27;:&#x27;) {
+				if (_(field).references) {
+					return orm.error(&#x27;Cannot parse type &#x22;&#x27; + field.type +
+						&#x27;&#x22; of field &#x22;&#x27; + field.$fullname + &#x27;&#x22;: a reference &#x27; +
+						&#x27;already exists in this field\&#x27;s definition&#x27;);
+				}
+				field.references = field.type.substr(1);
+				delete field.type;
+				implicit_refs.push(field);
+			}
+			/* Explicit references */
+			if (field.references) {
+				all_refs.push(field);
+			}
+			/* Index */
+			if (field.index &#x26;&#x26; !_(field.index).isString()) {
+				field.index = field.$name + &#x27;_idx&#x27;;
+			}
+			/* Unique key */
+			if (field.unique &#x26;&#x26; !_(field.unique).isString()) {
+				field.unique = field.$name + &#x27;_uniq&#x27;;
+			}
+			/* Reference options */
+			if (field.references) {
+				field.onUpdate = reference_option(orm,
+					_(field.onUpdate).isString() ? field.onUpdate : &#x27;restrict&#x27;);
+				field.onDelete = reference_option(orm,
+					_(field.onDelete).isString() ? field.onDelete : &#x27;restrict&#x27;);
+			}
+		});
+	});
+	/* Resolve references */
+	all_refs.forEach(function (field) {
+		if (_(field.references).isString()) {
+			field.references = resolve_field(orm, field.$fullname,
+				field.references);
+		}
+	});
+	/* Generate FK constraint names */
+	all_refs.forEach(function (field) {
+		field.$fkname = [
+				field.$name, &#x27;fk&#x27;, field.references.$table.$name,
+				field.references.$name
+			].join(&#x27;_&#x27;);
+	});
+	/* Resolve data types for implicit references */
+	var unresolved_implicit_refs = implicit_refs.length;
+	while (unresolved_implicit_refs &#x3e; 0) {
+		if (!_(implicit_refs).some(
+			function resolveSome(field) {
+				if (!_(field).has(&#x27;type&#x27;) &#x26;&#x26; _(field.references).has(&#x27;type&#x27;)) {
+					field.type = field.references.type;
+					unresolved_implicit_refs--;
+					return true;
+				}
+				return false;
+			})) {
+			return orm.error(&#x27;Failed to resolve references: Do you have a &#x27; +
+				&#x27;circular dependency between implicitly typed reference &#x27; +
+				&#x27;fields?  fields: &#x27; +
+				_(implicit_refs).pluck(&#x27;$fullname&#x27;).join(&#x27;, &#x27;));
+		}
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	if (!options.mysql) {
+		throw new Error(&#x27;Compulsory option (lol) `mysql` not specified&#x27;);
+	}
+	this.database = options.database;
+	this.schema = JSON.parse(JSON.stringify(schema));
+	this.types = schema.$types;
+	Internal.initialise_schema(this);
+	Internal.<span class="apidocCodeKeywordSpan">parse_schema</span>(this);
+	var createConnectionPool = function () {
+		options.mysql.database = options.database;
+		self.connection = mysql.createPool(options.mysql);
+		self.query = self.loggedQuery(self.connection);
+	};
+	/* No checks - connect to the DB and return synchronously */
+	if (options.skipChecks) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql-orm.save" id="apidoc.module.mysql-orm.save">module mysql-orm.save</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.save.save" id="apidoc.element.mysql-orm.save.save">
+        function <span class="apidocSignatureSpan">mysql-orm.</span>save
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">save = function () {
+	var args = parse_args(this, arguments);
+	var query = args.query;
+	var table = args.table;
+	var originalRow = args.data;
+	var options = args.options;
+	var callback = args.callback;
+	var self = this;
+	var row = _(originalRow).clone();
+	async.waterfall([
+			function (callback) {
+				<span class="apidocCodeCommentSpan">/* Serialize */
+</span>				_(table).keys().forEach(function (key) {
+					if (table[key].serialize) {
+						row[key] = table[key].serialize(row[key]);
+					}
+				});
+				/* Lookup reference IDs */
+				self.lookupForeignIds(query, table, row, function (err, res) {
+						row = res;
+						callback(err);
+					});
+			},
+			function (callback) {
+				var saveMode = options.save || &#x27;always&#x27;;
+				if (saveMode === &#x27;always&#x27;) {
+					async.parallel([
+							async.apply(sql.insertInto, self, table),
+							async.apply(sql.set, self, names(row), row),
+							async.apply(sql.onDuplicateKeyUpdate, self,
+								_(names(row)).without(table.$primary))
+						],
+						function (err, data) {
+							if (err) {
+								return callback(err);
+							}
+							execQuery(data.join(&#x27;\n&#x27;));
+						});
+				}
+				else if (saveMode === &#x27;new&#x27;) {
+					async.parallel([
+							async.apply(sql.insertInto, self, table),
+							async.apply(sql.set, self, names(row), row),
+						],
+						function (err, data) {
+							if (err) {
+								return callback(err);
+							}
+							execQuery(data.join(&#x27;\n&#x27;));
+						});
+				}
+				else if (saveMode === &#x27;existing&#x27;) {
+					if (table.$primary.length === 0) {
+						return callback(new Error(&#x27;Cannot save to existing &#x27; +
+							&#x27;row: table has no primary key&#x27;));
+					}
+					var criteria = _(row).pick(table.$primary);
+					async.parallel([
+							async.apply(sql.update, self, table),
+							async.apply(sql.set, self, _(names(row)).without(table.$primary), row),
+							async.apply(sql.where, self, query, table, criteria)
+						],
+						function (err, data) {
+							if (err) {
+								return callback(err);
+							}
+							execQuery(data.join(&#x27;\n&#x27;));
+						});
+				}
+				else {
+					return callback(new Error(&#x27;Unknown save mode: &#x27; + saveMode));
+				}
+				/* Executes the query */
+				function execQuery(sql) {
+					query(sql, null, function (err, res) {
+						if (err) {
+							return callback(err);
+						}
+						if (res.affectedRows === 0) {
+							return callback(new Error(&#x27;Failed to save row &#x27; +
+								&#x27;with mode &#x27; + saveMode));
+						}
+						if (_(res).has(&#x27;insertId&#x27;)) {
+							originalRow[table.$auto_increment] = res.insertId;
+						}
+						callback(err);
+					});
+				}
+			}
+		],
+		function (err) { callback(err); });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### Writing (saving records to the database)
+
+```node
+/* Load a record, modify it, save it */
+orm.load(orm.schema.users, { name: &#x27;mark&#x27; }, function (err, user) {
+	if (err) throw err;
+	user.role = { name: &#x27;pleb&#x27; };
+	orm.<span class="apidocCodeKeywordSpan">save</span>(orm.schema.users, user, function (err) {
+		if (err) throw err;
+		console.log(&#x27;User &#x22;mark&#x22; is now a pleb&#x27;);
+	});
+});
+
+/*
+* We could also do this instead, if we knew the user&#x27;s ID.  If the id
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.save.saveMany" id="apidoc.element.mysql-orm.save.saveMany">
+        function <span class="apidocSignatureSpan">mysql-orm.save.</span>saveMany
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">saveMany = function () {
+	var args = parse_args(this, arguments);
+	var query = args.query;
+	var table = args.table;
+	var rows = args.data;
+	var options = args.options;
+	var callback = args.callback;
+	var self = this;
+	async.each(rows,
+		function (row, callback) {
+			self.save(query, table, row, options, callback);
+		},
+		function (err) { callback(err); });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/*
+ * Save multiple records to a table
+ * This calls save() internally, so can update or create records.
+ * See save.js for details of how to explicity request an UPDATE or
+ * an INSERT.
+ */
+orm.<span class="apidocCodeKeywordSpan">saveMany</span>(orm.schema.countries,
+	[
+		{ id: 358, name: &#x27;Finland&#x27; },
+		{ id: 46, name: &#x27;Sweden&#x27; }
+	],
+	function (err) {
+		...
+	});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.save.saveMultipleTables" id="apidoc.element.mysql-orm.save.saveMultipleTables">
+        function <span class="apidocSignatureSpan">mysql-orm.save.</span>saveMultipleTables
+        <span class="apidocSignatureSpan">(data, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">saveMultipleTables = function (data, callback) {
+	var self = this;
+	this.beginTransaction(function (err, transaction) {
+		if (err) {
+			return callback(err);
+		}
+		async.series([
+				function (callback) {
+					async.eachSeries(names(data),
+						function (tableName, callback) {
+							if (data[tableName]) {
+								self.saveMany(transaction.query, tableName, data[tableName], callback);
+							}
+						},
+						callback);
+				},
+				transaction.commit
+			],
+			function (err) {
+				if (err) {
+					return transaction.rollback(function () { callback(err); });
+				}
+				callback(null);
+			});
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		...
+	});
+
+/*
+ * Save to multiple tables.  This calls saveMany() internally and
+ * wraps all the saveMany() calls in one transaction
+ */
+orm.<span class="apidocCodeKeywordSpan">saveMultipleTables</span>(
+	{
+		countries: [ { id: 40, name: &#x27;Romania&#x27; } ],
+		users: [ name: &#x27;Dazza&#x27;, country: { name: &#x27;Romania&#x27; }, ... ]
+	},
+	function (err) {
+	});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql-orm.sql" id="apidoc.module.mysql-orm.sql">module mysql-orm.sql</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.sql.delete" id="apidoc.element.mysql-orm.sql.delete">
+        function <span class="apidocSignatureSpan">mysql-orm.sql.</span>delete
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delete = function (callback) {
+	callback(null, &#x27;DELETE&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	});
+
+```
+
+### Deleting data
+
+```node
+orm.<span class="apidocCodeKeywordSpan">delete</span>(orm.schema.users, 1, callback);
+orm.delete(orm.schema.countries, { name: &#x27;Atlantis&#x27; }, callback);
+orm.deleteMany(orm.schema.posts, { user: { name: &#x27;Bob&#x27; } }, callback);
+```
+
+# Debugging
+```node
+orm.logLevel = 3;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.sql.from" id="apidoc.element.mysql-orm.sql.from">
+        function <span class="apidocSignatureSpan">mysql-orm.sql.</span>from
+        <span class="apidocSignatureSpan">(self, table, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">from = function (self, table, callback) {
+	tableName(table, function (err, res) {
+		if (err) {
+			return callback(err);
+		}
+		callback(null, &#x27;FROM &#x27; + res);
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.sql.insertInto" id="apidoc.element.mysql-orm.sql.insertInto">
+        function <span class="apidocSignatureSpan">mysql-orm.sql.</span>insertInto
+        <span class="apidocSignatureSpan">(self, table, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">insertInto = function (self, table, callback) {
+	tableName(table, function (err, res) {
+		if (err) {
+			return callback(err);
+		}
+		callback(null, &#x27;INSERT INTO &#x27; + res);
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.sql.limit" id="apidoc.element.mysql-orm.sql.limit">
+        function <span class="apidocSignatureSpan">mysql-orm.sql.</span>limit
+        <span class="apidocSignatureSpan">(self, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">limit = function (self, options, callback) {
+	var lparams =
+		_(options).has(&#x27;first&#x27;)?1:0 +
+		_(options).has(&#x27;count&#x27;)?2:0 +
+		_(options).has(&#x27;last&#x27;) ?4:0;
+	var first = options.first, last = options.last, count = options.count;
+	switch (lparams) {
+		case 0: return callback(null);
+		case 1: return callback(new Error(&#x27;first value for LIMIT specified, but no last or count value&#x27;));
+		case 2: return callback(null, mysql.format(&#x27;LIMIT ?&#x27;, [count])); break;
+		case 3: return callback(null, mysql.format(&#x27;LIMIT ?\nOFFSET ?&#x27;, [count, first])); break;
+		case 4:	return callback(new Error(&#x27;last value for LIMIT specified, but no first or count value&#x27;));
+		case 5: return callback(null, mysql.format(&#x27;LIMIT ?\nOFFSET ?&#x27;, [last - first, first])); break;
+		case 6: return callback(null, mysql.format(&#x27;LIMIT ?\nOFFSET ?&#x27;, [count, last - count])); break;
+		case 7: return callback(new Error(&#x27;first, last, count were all specified for LIMIT&#x27;));
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.sql.onDuplicateKeyUpdate" id="apidoc.element.mysql-orm.sql.onDuplicateKeyUpdate">
+        function <span class="apidocSignatureSpan">mysql-orm.sql.</span>onDuplicateKeyUpdate
+        <span class="apidocSignatureSpan">(self, keys, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onDuplicateKeyUpdate = function (self, keys, callback) {
+	callback(null,
+		&#x27;ON DUPLICATE KEY UPDATE\n\t&#x27; + keys.map(
+			function (key) {
+				return mysql.format(&#x27;?? = VALUES(??)&#x27;, [key, key]);
+			}
+		).join(&#x27;,\n\t&#x27;));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.sql.orderby" id="apidoc.element.mysql-orm.sql.orderby">
+        function <span class="apidocSignatureSpan">mysql-orm.sql.</span>orderby
+        <span class="apidocSignatureSpan">(self, table, sort, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">orderby = function (self, table, sort, callback) {
+	var sort = sort || table.$sort || [];
+	if (sort.length) {
+		if (_(sort).isString()) {
+			sort = [sort];
+		}
+		return callback(null, &#x27;ORDER BY\n\t&#x27; + sort.map(function (field) {
+			if (field.$type === &#x27;field&#x27;) {
+				field = field.$name;
+			}
+			if (!_(field).isString()) {
+				return callback(new Error(&#x27;$sort must either be a field &#x27; +
+					&#x27;name a field reference, or an array of field &#x27; +
+					&#x27;names/references&#x27;));
+			}
+			if (field.charAt(0) === &#x27;-&#x27;) {
+				return mysql.escapeId(field.substr(1)) + &#x27; DESC&#x27;;
+			}
+			else if (field.charAt(0) === &#x27;+&#x27;) {
+				return mysql.escapeId(field.substr(1)) + &#x27; ASC&#x27;;
+			}
+			else {
+				return mysql.escapeId(field);
+			}
+		}).join(&#x27;,\n\t&#x27;));
+	}
+	else {
+		return callback(null);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.sql.select" id="apidoc.element.mysql-orm.sql.select">
+        function <span class="apidocSignatureSpan">mysql-orm.sql.</span>select
+        <span class="apidocSignatureSpan">(self, fields, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">select = function (self, fields, callback) {
+	if (fields) {
+		fields = fields.map(
+			function (field) {
+				if (field.$type === &#x27;field&#x27;) {
+					return field.$name;
+				}
+				else {
+					return field;
+				}
+			}
+		);
+		return callback(null, mysql.format(&#x27;SELECT ??&#x27;, [fields]));
+	}
+	else {
+		return callback(null, &#x27;SELECT *&#x27;);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.sql.set" id="apidoc.element.mysql-orm.sql.set">
+        function <span class="apidocSignatureSpan">mysql-orm.sql.</span>set
+        <span class="apidocSignatureSpan">(self, keys, row, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (self, keys, row, callback) {
+	if (!keys) {
+		keys = names(row);
+	}
+	callback(null,
+		&#x27;SET\n\t&#x27; + keys.map(
+			function (key) {
+				return mysql.format(&#x27;?? = ?&#x27;, [key, row[key]]);
+			}
+		).join(&#x27;,\n\t&#x27;));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.sql.update" id="apidoc.element.mysql-orm.sql.update">
+        function <span class="apidocSignatureSpan">mysql-orm.sql.</span>update
+        <span class="apidocSignatureSpan">(self, table, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (self, table, callback) {
+	tableName(table, function (err, res) {
+		if (err) {
+			return callback(err);
+		}
+		callback(null, &#x27;UPDATE &#x27; + res);
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.sql.where" id="apidoc.element.mysql-orm.sql.where">
+        function <span class="apidocSignatureSpan">mysql-orm.sql.</span>where
+        <span class="apidocSignatureSpan">(self, query, table, criteria, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">where = function (self, query, table, criteria, callback) {
+	var cols = _(criteria).keys();
+	criteria = _(criteria).clone();
+	if (table.$primary.length === 1 &#x26;&#x26; _(criteria).has(table.$primary)) {
+		var primary = table.$primary[0];
+		criteria = _.object([primary], [criteria[primary]]);
+		cols = [primary]
+	}
+	if (cols.length) {
+		if (_(table).isString()) {
+			table = self.schema[table];
+		}
+		var refs = self.listForeignKeys(table);
+		if (refs.length) {
+			self.lookupForeignIds(query, table, criteria, { cols: cols }, function (err, res) {
+				if (err) {
+					return callback(err);
+				}
+				generateClause(res);
+			});
+		}
+		else {
+			generateClause(criteria);
+		}
+	}
+	else {
+		return callback(null);
+	}
+	function generateClause(row) {
+		cols.forEach(function (fieldName) {
+			var field = table[fieldName];
+			if (field.serialize) {
+				row[fieldName] = field.serialize(row[fieldName]);
+			}
+		});
+		return callback(null,
+			&#x27;WHERE\n\t&#x27; + cols
+				.map(function (col) {
+					return mysql.format(&#x27;??=?&#x27;, [col, row[col]]);
+				})
+				.join(&#x27; AND\n\t&#x27;));
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql-orm.transaction" id="apidoc.module.mysql-orm.transaction">module mysql-orm.transaction</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.transaction.beginTransaction" id="apidoc.element.mysql-orm.transaction.beginTransaction">
+        function <span class="apidocSignatureSpan">mysql-orm.transaction.</span>beginTransaction
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">beginTransaction = function (callback) {
+	var self = this;
+	var pooled = this.connection.getConnection;
+	if (pooled) {
+		this.connection.getConnection(gotConnection);
+	}
+	else {
+		gotConnection(this.conncetion);
+	}
+	function gotConnection(err, connection) {
+		if (err) {
+			return callback(err);
+		}
+		connection.beginTransaction(function (err) {
+			if (err) {
+				return callback(err);
+			}
+			var transaction = {};
+			transaction.connection = connection;
+			transaction.query = self.loggedQuery(connection);
+			transaction.released = false;
+			transaction.release = function () {
+				if (!pooled) {
+					return self.info(&#x27;Attempted to release a connection that isn\&#x27;t pooled&#x27;);
+				}
+				if (transaction.released) {
+					return self.warn(&#x27;Attempted to release an already released connection&#x27;);
+				}
+				connection.release();
+				transaction.released = true;
+			};
+			transaction.commit = function (callback) {
+				self.info(transaction.query._msg(cli.cyan(&#x27;Commit transaction&#x27;)));
+				connection.commit(function (err) {
+					if (err) {
+						self.warn(transaction.query._msg(&#x27;Commit failed: &#x27; + err));
+						return callback(err);
+					}
+					transaction.release();
+					callback(null);
+				});
+			};
+			transaction.rollback = function (callback) {
+				self.info(transaction.query._msg(cli.cyan(&#x27;Rollback transaction&#x27;)));
+				connection.rollback(function (err) {
+					transaction.release();
+					if (err) {
+						self.warn(transaction.query._msg(&#x27;Rollback failed: &#x27; + err));
+						return callback(err);
+					}
+					callback(null);
+				});
+			};
+			self.info(transaction.query._msg(cli.cyan(&#x27;Begin transaction&#x27;)));
+			callback(null, transaction);
+		});
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+//             role: { name: &#x27;ploom&#x27; }
+//           }]
+//       },
+//       function (err) { ... });
+//
+ORM.prototype.saveMultipleTables = function (data, callback) {
+	var self = this;
+	this.<span class="apidocCodeKeywordSpan">beginTransaction</span>(function (err, transaction) {
+		if (err) {
+			return callback(err);
+		}
+		async.series([
+				function (callback) {
+					async.eachSeries(names(data),
+						function (tableName, callback) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql-orm.utils" id="apidoc.module.mysql-orm.utils">module mysql-orm.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.utils.indent" id="apidoc.element.mysql-orm.utils.indent">
+        function <span class="apidocSignatureSpan">mysql-orm.utils.</span>indent
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">indent = function (str) {
+	return &#x27;\t&#x27; + str.replace(/\n/g, &#x27;\n\t&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.utils.names" id="apidoc.element.mysql-orm.utils.names">
+        function <span class="apidocSignatureSpan">mysql-orm.utils.</span>names
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">names = function (obj) {
+	return _(obj).keys().filter(
+		function (key) {
+			return key.charAt(0) !== &#x27;$&#x27; &#x26;&#x26; !_(obj[key]).isFunction();
+		});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+// names
+// -----
+// Returns an array of names of properties of the object excluding names that
+// begin with a &#x27;$&#x27; symbol.
+module.exports.names = function (obj) {
+	return utils.<span class="apidocCodeKeywordSpan">names</span>(obj);
+};
+
+
+// ORM constructor
+// ---------------
+//  + schema - Defines the structure of the database and the relations.
+//    This is described below.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql-orm.utils.parse_args" id="apidoc.element.mysql-orm.utils.parse_args">
+        function <span class="apidocSignatureSpan">mysql-orm.utils.</span>parse_args
+        <span class="apidocSignatureSpan">(orm, args, wantsField)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse_args = function (orm, args, wantsField) {
+	args = [].slice.apply(args);
+	var params = {};
+	params.query = (function () {
+		return (_(args[0]).isFunction() &#x26;&#x26; args[0].name === &#x27;query&#x27;) ?
+			args.shift() : orm.query;
+	})();
+	if (wantsField) {
+		params.field = (function () {
+			return args.shift();
+		})();
+	}
+	else {
+		params.table = (function () {
+			var table = args.shift();
+			if (_(table).isString() &#x26;&#x26; _(orm.schema).has(table)) {
+				return orm.schema[table];
+			}
+			else if (_(table).isObject() &#x26;&#x26; table.$type === &#x27;table&#x27; &#x26;&#x26; table.$schema === orm.schema) {
+				return table;
+			}
+			else {
+				throw new Error(&#x27;Cannot resolve table: &#x27; + JSON.stringify(table));
+				//return table;
+			}
+		})();
+	}
+	params.callback = (function () {
+		var callback = args.pop();
+		if (!_(callback).isFunction()) {
+			throw new Error(&#x27;Callback is not a function!&#x27;);
+		}
+		return callback;
+	})();
+	params.data = (function () {
+		var data = args.shift();
+		if (wantsField) {
+			return data;
+		}
+		if (_(data).isNull() || _(data).isUndefined()) {
+			return {};
+		}
+		if (_(data).isString() || _(data).isNumber()) {
+			if (params.table.$primary.length !== 1) {
+				return callback(new Error(&#x27;Table &#x22;&#x27; + params.table.$name +
+					&#x27;&#x22; has no simple primary key, please specify a search &#x27; +
+					&#x27;key explicitly&#x27;));
+			}
+			return _.object([params.table.$primary[0]], [data]);
+		}
+		return data;
+	})();
+	var hasOptions;
+	params.options = (function () {
+		var options = args.shift();
+		hasOptions = !!options &#x26;&#x26; options != {};
+		return options || {};
+	})();
+	params.hasOptions = hasOptions;
+	return params;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
